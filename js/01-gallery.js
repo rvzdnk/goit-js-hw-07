@@ -6,7 +6,7 @@ import { galleryItems } from './gallery-items.js';
 const gallery = document.querySelector(".gallery")
 
 const markup = galleryItems
-  .map(({preview, original, description}) => 
+.map(({preview, original, description}) => 
 `<div class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
@@ -24,8 +24,9 @@ const markup = galleryItems
   
   gallery.addEventListener("click", lightboxModal)
 
-  function lightboxModal (e){
+  gallery.onclick = function lightboxModal (e){
     e.preventDefault();
+    
     if (e.target.nodeName !== "IMG"){
         return;
     };
@@ -36,9 +37,10 @@ const markup = galleryItems
     instance.show();
 
     document.addEventListener("keydown", (e) =>{
-        if (e.key === "Escape") instance.close();
-            }
-        )
+        if (e.key === "Escape") {
+          instance.close();
+          }
+        });
     }
 
   
