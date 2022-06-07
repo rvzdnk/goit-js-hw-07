@@ -3,7 +3,7 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
  
 
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector(".gallery")
 
 const markup = galleryItems
 .map(({preview, original, description}) => 
@@ -19,10 +19,10 @@ const markup = galleryItems
 </div>`)
   .join("");
 
+  gallery.addEventListener("click", lightboxModal);
   
   gallery.insertAdjacentHTML("afterbegin", markup);
   
-  gallery.addEventListener("click", lightboxModal);
   
 
  function lightboxModal (e){
@@ -33,7 +33,7 @@ const markup = galleryItems
     };
     
     const instance = basicLightbox.create(
-        `<img width="1400" height="900" src = "${e.target.dataset.source}">`
+        `<img width="1400" height="900" src = ${e.target.dataset.source}>`
     );
     instance.show();
 
